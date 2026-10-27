@@ -1,4 +1,180 @@
-<h1>Fosnalic Techs - Developer Portfolio</h1>
-<p>I'm a software developer from Uganda building web apps and open source tools.</p>
-<h2>My Projects</h2>
-<ul><li>Project 1</li><li>Project 2</li></ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fosnalic Techs - Community & Digital Tools</title>
+    
+    <!-- IFRAME DISABLER SCRIPT: Prevents and strips any iframe elements from running or embedding -->
+    <script>
+        (function() {
+            // Function to remove any existing iframes
+            function removeIframes() {
+                const iframes = document.querySelectorAll('iframe');
+                iframes.forEach(iframe => {
+                    console.warn('[Security] Unauthorized iframe detected and removed:', iframe);
+                    iframe.remove();
+                });
+            }
+
+            // Run on initial load
+            document.addEventListener('DOMContentLoaded', removeIframes);
+
+            // Observe the DOM to instantly catch and destroy dynamically injected iframes
+            const observer = new MutationObserver(mutations => {
+                mutations.forEach(mutation => {
+                    if (mutation.addedNodes) {
+                        mutation.addedNodes.forEach(node => {
+                            if (node.nodeName && node.nodeName.toLowerCase() === 'iframe') {
+                                console.warn('[Security] Dynamically added iframe blocked:', node);
+                                node.remove();
+                            } else if (node.querySelectorAll) {
+                                const nestedIframes = node.querySelectorAll('iframe');
+                                nestedIframes.forEach(iframe => {
+                                    console.warn('[Security] Nested iframe blocked:', iframe);
+                                    iframe.remove();
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true
+            });
+        })();
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: #0b1120;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fosnalic Techs</h1>
+        <p>Your hub for mobile tricks, digital tools, and tech updates</p>
+    </header>
+
+    <div class="container">
+        <div style="text-align: center;">
+            <span class="badge">🛡️ Protected Environment (Iframe Disabler Active)</span>
+            <h2>Welcome to the Community Resource Page</h2>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                Explore our core focus areas, tech updates, and development insights safely without external structural takeovers or injected frames.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="card">
+                <h3>Tech Updates & News</h3>
+                <p>Stay ahead with the latest developments in mobile technology, application releases, and digital optimization tools.</p>
+            </div>
+            <div class="card">
+                <h3>App Tips & Resources</h3>
+                <p>Discover helpful guides, software configurations, utility insights, and performance adjustments for everyday devices.</p>
+            </div>
+            <div class="card">
+                <h3>Secure Environment</h3>
+                <p>This layout runs an active DOM mutation observer that automatically strips out any unexpected iframe elements attempting to load.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Fosnalic Techs Community. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
